@@ -2,11 +2,12 @@ const axios = require("axios");
 const cors = require("cors");
 const express = require("express");
 const logger = require("morgan");
+const router = require("./routes");
 // const redis = require("redis");
 const { client } = require("./cache.js");
 
 const app = express();
-
+app.use(router);
 app.use(logger("dev"));
 app.use(cors());
 app.use(express.json());
